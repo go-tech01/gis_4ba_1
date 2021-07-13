@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+
+    <div style="margin: 2rem; text-align: center">
+        <h1>HTTP METHOD</h1>
+
+        <form action="/accounts/hello_world/", method="post">
+            {% csrf_token %}
+            <input type="text" name="input_text">
+            <input type="submit", class="btn btn-outline-dark rounded-pill px-5 m-2">
+            <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2">
+        </form>
+
+        {%  for data in data_list %}
+        <h3>{{ data.text }}</h3>
+        {% endfor %}
+        <h3>new_model.text : {{ new_model.text }}</h3>
+        <h3>text : {{ text }}</h3>
+
+    </div>
+
+{% endblock %}
