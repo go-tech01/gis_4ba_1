@@ -1,11 +1,31 @@
-<div style="text-align: center; ">
+{#<div style="height: 10rem; background-color: aqua; margin: 2rem; border-radius: 1rem">#}
+<div style="text-align: center">
     <div class="pragmatic_header_logo">
-        <h1>Hak</h1>
+        {# 마진 값 하나 - 4방향  / 값 2개 얻으면 - 2방향 ( 상하, 좌우) / 값 4개도 있음#}
+        {# Pacifico 폰트가 안 될때 cursive 폰트를 써라#}
+        <h1>Pragmatic</h1>
     </div>
     <div class="pragmatic_header_button">
         <span>nav1</span>
         <span>nav2</span>
-        <span>nav3</span>
-        <span>nav4</span>
+        {% if not is_authenticated %}
+        <span>
+            <a href="{% url 'accountapp:login' %}">
+                로그인(login)
+            </a>
+        </span>
+        <span>
+            <a href="{% url 'accountapp:create' %}">
+                회원가입(sign up)
+            </a>
+        </span>
+        {% else %}
+        <span>
+            <a href="{% url 'accountapp:logout' %}">
+                로그아웃(logout)
+            </a>
+        </span>
+        {% endif %}
     </div>
+
 </div>
