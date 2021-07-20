@@ -4,11 +4,7 @@
     </div>
     <div class="pragmatic_header_button">
         <span>nav1</span>
-        <span><span>
-            <a href="{% url 'accountapp:hello_world' %}">
-                게시글
-            </a>
-        </span></span>
+        <span>nav2</span>
         {% if not user.is_authenticated %}
         <span>
             <a href="{% url 'accountapp:login' %}">
@@ -22,6 +18,9 @@
         </span>
         {% else %}
         <span>
+            <a href="{% url 'accountapp:hello_world' %}">
+                게시글
+            </a>
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 내정보(Mypage)
             </a>

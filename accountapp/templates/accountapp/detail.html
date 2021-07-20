@@ -8,6 +8,17 @@
         <div>
             가입일자(Date) : {{ target_user.date_joined }}
         </div>
+        <div>
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
+                내정보 수정 update info
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
+                회원탈퇴 Quit
+            </a>
+        </div>
+
     </div>
 
 {% endblock %}
