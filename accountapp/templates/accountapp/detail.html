@@ -11,12 +11,12 @@
         {% if user == target_user %}
         <div>
             <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-                내정보 수정 update info
+                내정보 수정(update info)
             </a>
         </div>
         <div>
             <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
-                회원탈퇴 Quit
+                회원탈퇴(Quit)
             </a>
         </div>
         {% endif %}
