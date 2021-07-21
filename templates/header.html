@@ -7,6 +7,11 @@
         <span>nav2</span>
         {% if not user.is_authenticated %}
         <span>
+        <a href="{% url 'accountapp:hello_world' %}">
+            홈페이지
+        </a>
+        </span>
+        <span>
             <a href="{% url 'accountapp:login' %}">
                 로그인(login)
             </a>
@@ -19,7 +24,7 @@
         {% else %}
         <span>
             <a href="{% url 'accountapp:hello_world' %}">
-                게시글
+                홈페이지
             </a>
             <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 내정보(Mypage)
