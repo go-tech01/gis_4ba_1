@@ -10,8 +10,10 @@
                 <h2 class="NNS_B">
                     {{ target_user.profile.nickname }}
                     {% if target_user == user %}
-                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                        수정(Edit)
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}"
+                       class="material-icons round_button">
+                        edit
+{#                        수정(Edit)#}
                     </a>
                     {% endif %}
                 </h2>
@@ -24,18 +26,18 @@
             </h2>
             {% endif %}
         </div>
-        <div>
-            가입일자(Date) : {{ target_user.date_joined }}
-        </div>
+
         {% if user == target_user %}
         <div>
-            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-                내정보 수정(Update Info)
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}"
+               class="material-icons round_button m-1">
+                settings
+{#                내정보 수정(Update Info)#}
             </a>
-        </div>
-        <div>
-            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
-                회원탈퇴(Quit)
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}"
+               class="material-icons round_button m-1">
+                close
+{#                회원탈퇴(Quit)#}
             </a>
         </div>
         {% endif %}
