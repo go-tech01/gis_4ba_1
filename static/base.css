@@ -42,4 +42,5 @@
 
 .round_button:hover{
     color: darkred;
+    box-shadow: 0 0 3px darkred;
 }
