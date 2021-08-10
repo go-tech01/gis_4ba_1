@@ -4,7 +4,7 @@
 
 
     <div style="margin: 2rem; text-align: center">
-        <h1>HTTP METHOD</h1>
+        <h1>낙서장</h1>
 
         <form action="/accounts/hello_world/", method="post">
             {% csrf_token %}
@@ -13,11 +13,11 @@
             <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2">
         </form>
 
-        {%  for data in data_list %}
+        {%  for data in data_list|slice:":10" %}
         <h3>{{ data.text }}</h3>
         {% endfor %}
-        <h3>new_model.text : {{ new_model.text }}</h3>
-        <h3>text : {{ text }}</h3>
+{#        <h3>new_model.text : {{ new_model.text }}</h3>#}
+{#        <h3>text : {{ text }}</h3>#}
 
     </div>
 

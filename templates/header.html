@@ -1,38 +1,48 @@
+{% load static %}
+
 <div style="text-align: center">
     <div class="pragmatic_header_logo">
-        <h1>Pragmatic</h1>
+        <a class="a_head" href="{% url 'accountapp:hello_world' %}">
+{#            <h1>Pragmatic</h1>#}
+            <img src="{% static 'img/image_1.png' %}" alt="No Image" width="150rem" height="75rem">
+        </a>
     </div>
     <div class="pragmatic_header_button">
         <span>nav1</span>
         <span>
-            <a href="{% url 'articleapp:list' %}">
-                article
+            <a href="{% url 'articleapp:list' %}"
+                class="btn btn-outline-info mx-1">
+                게시글(Articles)
             </a>
         </span>        {% if not user.is_authenticated %}
         <span>
-        <a href="{% url 'accountapp:hello_world' %}">
-            홈페이지
-        </a>
+{#        <a href="{% url 'accountapp:hello_world' %}">#}
+{#            홈페이지#}
+{#        </a>#}
         </span>
         <span>
-            <a href="{% url 'accountapp:login' %}">
+            <a href="{% url 'accountapp:login' %}"
+                class="btn btn-outline-info mx-1">
                 로그인(login)
             </a>
         </span>
         <span>
-            <a href="{% url 'accountapp:create' %}">
+            <a href="{% url 'accountapp:create' %}"
+                class="btn btn-outline-info mx-1">
                 회원가입(sign up)
             </a>
         </span>
         {% else %}
         <span>
-            <a href="{% url 'accountapp:hello_world' %}">
-                홈페이지
-            </a>
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+{#            <a href="{% url 'accountapp:hello_world' %}">#}
+{#                홈페이지#}
+{#            </a>#}
+            <a href="{% url 'accountapp:detail' pk=user.pk %}"
+                class="btn btn-outline-info mx-1">
                 내정보(Mypage)
             </a>
-            <a href="{% url 'accountapp:logout' %}">
+            <a href="{% url 'accountapp:logout' %}"
+                class="btn btn-outline-info mx-1">
                 로그아웃(logout)
             </a>
         </span>

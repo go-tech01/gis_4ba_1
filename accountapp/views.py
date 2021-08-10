@@ -13,7 +13,7 @@ from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountCreationForm
 from accountapp.models import NewModel
 
-@login_required
+# @login_required
 def hello_world(request):
     if request.method == 'POST':
         temp = request.POST.get('input_text')
@@ -22,7 +22,7 @@ def hello_world(request):
         new_model.save()
         return HttpResponseRedirect(reverse('accountapp:hello_world'))
     else:
-        data_list = NewModel.objects.all()
+        data_list = NewModel.objects.all().order_by('-id')
         return render(request,'accountapp/hello_world.html',
                       context={'data_list': data_list})
 
