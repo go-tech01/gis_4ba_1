@@ -6,7 +6,7 @@
             <h4>댓글 삭제(Delete Comment)</h4>
         </div>
         <div>
-            <form action="{% url 'commentapp:delete' pk=target_comment %}" method="post">
+            <form action="{% url 'commentapp:delete' pk=target_comment.pk %}" method="post">
                 {%  csrf_token %}
                 <div class="m-5">
                     <input type="submit" class="btn btn-danger rounded-pill px-5" value="삭제">
