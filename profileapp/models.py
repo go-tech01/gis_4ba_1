@@ -6,5 +6,5 @@ from django.db import models
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     image = models.ImageField(upload_to='profile/', null=True)
-    nickname = models.CharField(max_length=15, unique=True, null=True)
+    nickname = models.CharField(max_length=15, unique=True, null=False)
     message = models.CharField(max_length=200, null=True, default='안녕하세요')

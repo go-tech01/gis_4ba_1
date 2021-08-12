@@ -37,6 +37,21 @@
     object-fit: cover;  /* 잘라내기 */
 }
 
+.articel_profile_image{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 20rem;
+    object-fit: cover;  /* 잘라내기 */
+}
+
+.comment_profile_image{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 20rem;
+    object-fit: cover;  /* 잘라내기 */
+}
+
+
 .NNS_B{
     font-family: "NanumSquareR", cursive;
 }

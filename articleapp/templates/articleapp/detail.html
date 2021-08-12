@@ -5,25 +5,31 @@
         <div class="my-3">
             {# 게시글 제목, 글쓴이, 작성일자 #}
             <h1 class="NNS_B">{{ target_article.title }}</h1>
-            <h4>{{ target_article.writer.profile.nickname }}</h4>
+            <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
+                <h4>
+                    <img src="{{ target_article.writer.profile.image.url }}"
+                     class = "articel_profile_image"
+                     alt="profile image">
+                {{ target_article.writer.profile.nickname }}</h4>
+            </a>
             <p>{{ target_article.created_at }}</p>
         </div>
         <hr>
-        <div class="my-5">
+        <div class="my-3">
             {# 게시글 대표이미지, 글 내용 #}
             <img src="{{ target_article.image.url }}" alt=""
                 class="article_image">
-            <div class="my-5 article_content">
+            <div class="my-4 article_content">
                 {{ target_article.content }}
             </div>
             {% if target_article.writer == user %}
             <div>
                 <a href="{% url 'articleapp:update' pk=target_article.pk %}"
-                    class="btn btn-success rounded-pill px-5 m-3">
+                    class="btn btn-success rounded-pill px-5 mx-2">
                     수정(Update)
                 </a>
                 <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
-                    class="btn btn-danger rounded-pill px-5 m-3">
+                    class="btn btn-danger rounded-pill px-5 mx-2">
                     삭제(Delete)
                 </a>
             </div>
@@ -37,8 +43,14 @@
             {% for comment in target_article.comment.all %}
                 <div class="comment_box">
                     <div>{# 댓글 작성자, 시간 #}
-                        <span class="NNS_B"
-                              style="font-size: 1.3rem">
+                        <span class="NNS_B p-1"
+                              style="font-size: 1.3rem;
+                              box-shadow: 0 0 0.5rem #4050c1;
+                              padding: 5rem;
+                              border-radius: 0.5rem">
+                              <img src="{{ comment.writer.profile.image.url }}"
+                                 class = "comment_profile_image"
+                                 alt="프로필 없음">
                               {{ comment.writer.profile.nickname }}</span>
                         <span>{{ comment.created_at }}</span>
                     </div>

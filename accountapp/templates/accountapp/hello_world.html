@@ -9,8 +9,8 @@
         <form action="/accounts/hello_world/", method="post">
             {% csrf_token %}
             <input type="text" name="input_text">
-            <input type="submit", class="btn btn-outline-dark rounded-pill px-5 m-2" value="갱신">
-            <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2">
+            <input type="submit", class="btn btn-outline-dark rounded-pill px-5 m-2" value="오른쪽 클릭해">
+            <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2" value="왼쪽 클릭해">
         </form>
 
         {%  for data in data_list|slice:":10" %}
