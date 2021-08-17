@@ -12,7 +12,6 @@
             <input type="submit", class="btn btn-outline-dark rounded-pill px-5 m-2" value="오른쪽 클릭해">
             <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2" value="왼쪽 클릭해">
         </form>
-
         {%  for data in data_list|slice:":10" %}
         <h3>{{ data.text }}</h3>
         {% endfor %}
