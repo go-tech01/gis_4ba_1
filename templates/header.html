@@ -8,13 +8,18 @@
         </a>
     </div>
     <div class="pragmatic_header_button">
-        <span>nav1</span>
         <span>
+            <a href="{% url 'projectapp:list' %}"
+                class="btn btn-outline-info">
+                프로젝트(Project)
+            </a>
+        </span>                <span>
             <a href="{% url 'articleapp:list' %}"
                 class="btn btn-outline-info">
                 게시글(Articles)
             </a>
-        </span>        {% if not user.is_authenticated %}
+        </span>
+        {% if not user.is_authenticated %}
         <span>
 {#        <a href="{% url 'accountapp:hello_world' %}">#}
 {#            홈페이지#}
