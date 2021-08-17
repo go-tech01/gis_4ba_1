@@ -10,12 +10,12 @@
     <div class="pragmatic_header_button">
         <span>
             <a href="{% url 'projectapp:list' %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 프로젝트(Project)
             </a>
         </span>                <span>
             <a href="{% url 'articleapp:list' %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 게시글(Articles)
             </a>
         </span>
@@ -27,13 +27,13 @@
         </span>
         <span>
             <a href="{% url 'accountapp:login' %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 로그인(login)
             </a>
         </span>
         <span>
             <a href="{% url 'accountapp:create' %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 회원가입(sign up)
             </a>
         </span>
@@ -43,11 +43,11 @@
 {#                홈페이지#}
 {#            </a>#}
             <a href="{% url 'accountapp:detail' pk=user.pk %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 내정보(Mypage)
             </a>
             <a href="{% url 'accountapp:logout' %}"
-                class="btn btn-outline-info">
+                class="btn btn-outline-info btn_header">
                 로그아웃(logout)
             </a>
         </span>
