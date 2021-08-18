@@ -1,5 +1,3 @@
-{% extends 'base.html' %}
-{% block content %}
 {% load static %}
 
     <style>
@@ -9,40 +7,44 @@
         }
 
         .container div {
+            width: 45%;
+            max-width: 200px;
             display: flex;
             justify-content: center;
             align-items: center;
             border-radius: 1rem;
               flex-direction: column;
-
+              box-shadow: 0 0 1rem;
         }
         .container img{
-            width: 7rem;
-            height: 7rem;
+            width: 100%;
             border-radius: 1rem;
-            box-shadow: 0 0 1rem #807d7d;
         }
 
 
     </style>
     <div class="container">
-        {% for project in project_list %}
+        {% for article in article_list %}
             <div>
-                <a href="{% url 'projectapp:detail' pk=project.pk %}">
-                    <img src="{{ project.image.url }}" alt="">
+                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                    <img src="{{ article.image.url }}" alt="">
                 </a>
-                <span class="my-2 NNS_B">{{ project.name | truncatechars:10 }}</span>
+                <span class="my-2 NNS_B">{{ article.title }}</span>
             </div>
+
         {% endfor %}
     </div>
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
     {% include 'snippets/pagination.html' %}
+
     <div class="text-center">
-        <a href="{% url 'projectapp:create' %}"
+        <a href="{% url 'articleapp:create' %}"
+            class="btn btn-dark rounded-pill material-icons">
+            brush
+        </a>
+        <a href="{% url 'articleapp:create' %}"
             class="btn btn-outline-primary text-center m-3">
-            프로젝트 생성(Create Project)
+            게시글 작성(Create Article)
         </a>
     </div>
-
-{% endblock %}
