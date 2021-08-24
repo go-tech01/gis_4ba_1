@@ -5,6 +5,16 @@
         <div class="my-3">
             {# 게시글 제목, 글쓴이, 작성일자 #}
             <h1 class="NNS_B">{{ target_article.title }}</h1>
+            <div class="my-1">
+                <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
+                    class="material-icons"
+                    style="vertical-align: middle; font-size: 1.4rem; color: #f77">
+                    favorite
+                </a>
+                <span style="vertical-align: middle; font-size: 1.4rem;">
+                    {{ target_article.like }}
+                </span>
+            </div>
             <a href="{% url 'accountapp:detail' pk=target_article.writer.pk %}">
                 <h4>
                     <img src="{{ target_article.writer.profile.image.url }}"

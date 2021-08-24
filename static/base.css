@@ -101,3 +101,12 @@
     padding: .3rem .3rem;
     font-size: 0.8rem;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: black;
+}
