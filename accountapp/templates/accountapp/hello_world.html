@@ -3,17 +3,17 @@
 {% block content %}
 
 
-    <div style="margin: 2rem; text-align: center">
-        <h1>낙서장</h1>
+    <div style="margin: 2rem; text-align: center;">
+        <h1 style="color: #505050; text-shadow: 0.1rem 0.1rem #909090;">낙서장</h1>
 
         <form action="/accounts/hello_world/", method="post">
             {% csrf_token %}
             <input type="text" name="input_text">
-            <input type="submit", class="btn btn-outline-dark rounded-pill px-5 m-2" value="오른쪽 클릭해">
-            <input type="submit", class="btn btn-outline-primary rounded-pill px-5 m-2" value="왼쪽 클릭해">
+            <input type="submit", class="btn btn-outline-dark rounded-pill" value="오른쪽 클릭해">
+            <input type="submit", class="btn btn-outline-primary rounded-pill" value="왼쪽 클릭해">
         </form>
         {%  for data in data_list|slice:":10" %}
-        <h3>{{ data.text }}</h3>
+        <h6 style="color: #000000">{{ data.text }}</h6>
         {% endfor %}
 {#        <h3>new_model.text : {{ new_model.text }}</h3>#}
 {#        <h3>text : {{ text }}</h3>#}

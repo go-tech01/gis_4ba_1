@@ -1,5 +1,5 @@
 .pragmatic_header_logo {
-    margin: 2rem 0;
+    margin: 1.5rem 0 1rem 0;
     font-family: 'Pacifico', cursive;
 }
 
@@ -13,7 +13,7 @@
 
 
 .pragmatic_header_button {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .pragmatic_footer_logo {
@@ -57,9 +57,9 @@
 }
 
 .round_button{
-    color: blueviolet;
+    color: #691aaf;
     text-decoration: none;
-    box-shadow: 0 0 3px blue;
+    box-shadow: 0 0 3px #3e3e3e;
     border-radius: 20rem;
     padding: 0.3rem;
 }
@@ -98,8 +98,15 @@
     }
 }
 .btn_header{
-    padding: .3rem .3rem;
-    font-size: 0.8rem;
+    margin : 0.2rem 0rem;
+    padding: 0.2rem 0.2rem;
+    font-size: 0.9rem;
+}
+
+.btn_header:hover{
+    color: #7a95f6;
+    font-weight: bolder;
+    font-style: italic;
 }
 
 a{

@@ -16,17 +16,20 @@ from likeapp.models import LikeRecord
 @transaction.atomic()
 def db_transaction(user, article):
     like_record = LikeRecord.objects.filter(user=user, article=article)
-    if like_record.exists():
-        # like_record.delete()
-        # article.like -= 1
-        # article.save()
-        # return 2
+    x = len(LikeRecord.objects.filter(article=article))
+    if article.like != x:
         raise ValidationError('like already exists')
+    elif like_record.exists():
+        like_record.delete()
+        article.like -= 1
+        article.save()
+        return 2
     else:
         LikeRecord(user=user, article=article).save()
         article.like += 1
         article.save()
-        # return 1
+        return 1
+
 
 
 
@@ -36,22 +39,23 @@ class LikeArticleView(RedirectView):
         user = request.user
         article = Article.objects.get(pk=kwargs['article_pk'])
 
-        try:
-            db_transaction(user, article)
-            messages.add_message(request, messages.SUCCESS, "좋아요 했따링")
-        except ValidationError:
-            messages.add_message(request, messages.ERROR, "좋아요은 한번만...")
-            return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
-
-        # if db_transaction(user, article) == 1:
+        # try:
+        #     db_transaction(user, article)
         #     messages.add_message(request, messages.SUCCESS, "좋아요 했따링")
-        # elif db_transaction(user, article) == 2:
-        #     messages.add_message(request, messages.SUCCESS, "좋아요 취소...")
-        #     HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
-        # else:
-        #     messages.add_message(request, messages.ERROR, "반영이 안됨")
-        #     HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
-        # return super().get(request, *args, **kwargs)
+        # except ValidationError:
+        #     messages.add_message(request, messages.ERROR, "좋아요은 한번만...")
+        #     return HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
+        try:
+            db_return = db_transaction(user, article)
+            if db_return == 1:
+                messages.add_message(request, messages.SUCCESS, "좋아요 완료~!!")
+            elif db_return == 2:
+                messages.add_message(request, messages.INFO, "좋아요 취소...")
+        except:
+            messages.add_message(request, messages.ERROR, "반영이 안됨")
+            HttpResponseRedirect(reverse('articleapp:detail', kwargs={'pk': kwargs['article_pk']}))
+
+        return super().get(request, *args, **kwargs)
 
     def get_redirect_url(self, *args, **kwargs):
         return reverse('articleapp:detail', kwargs={'pk':kwargs['article_pk']})

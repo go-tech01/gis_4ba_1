@@ -4,26 +4,29 @@
     <div class="pragmatic_header_logo">
         <a class="a_head" href="{% url 'accountapp:hello_world' %}">
 {#            <h1>Pragmatic</h1>#}
-            <img src="{% static 'img/image_1.png' %}" alt="No Image" width="150rem" height="75rem">
+            <img src="{% static 'img/profile_1.jpg' %}" alt="No Image" width="150rem" height="101rem">
         </a>
     </div>
     <div class="pragmatic_header_button">
         <span>
             <a href="{% url 'projectapp:list' %}"
-                class="btn btn-outline-info btn_header">
-                프로젝트(Projects)
+                class="btn btn_header">
+{#                class="btn btn-outline-secondary btn_header">#}
+                게시판(project)
             </a>
-        </span>                <span>
+        </span>
+        <span>
             <a href="{% url 'articleapp:list' %}"
-                class="btn btn-outline-info btn_header">
-                게시글(Articles)
+                class="btn btn_header">
+                게시글(article)
             </a>
         </span>
         {% if user.is_authenticated %}
         <span>
             <a href="{% url 'subscribeapp:list' %}"
-                class="btn btn-outline-info btn_header">
-                구독(sub)
+                class="btn btn_header">
+{#                구독(sub)#}
+                구독
             </a>
         </span>
         {% endif %}
@@ -35,14 +38,14 @@
         </span>
         <span>
             <a href="{% url 'accountapp:login' %}"
-                class="btn btn-outline-info btn_header">
+                class="btn btn_header">
                 로그인(login)
             </a>
         </span>
         <span>
             <a href="{% url 'accountapp:create' %}"
-                class="btn btn-outline-info btn_header">
-                회원가입(sign up)
+                class="btn btn_header">
+                회원가입(signup)
             </a>
         </span>
         {% else %}
@@ -51,15 +54,16 @@
 {#                홈페이지#}
 {#            </a>#}
             <a href="{% url 'accountapp:detail' pk=user.pk %}"
-                class="btn btn-outline-info btn_header">
-                내정보(Mypage)
+                class="btn btn_header">
+                내정보(mypage)
             </a>
+        </span>
+        <span>
             <a href="{% url 'accountapp:logout' %}"
-                class="btn btn-outline-info btn_header">
+                class="btn btn_header">
                 로그아웃(logout)
             </a>
         </span>
         {% endif %}
     </div>
-
 </div>
