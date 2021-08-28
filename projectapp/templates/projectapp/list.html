@@ -28,13 +28,27 @@
     <div class="container">
         {% for project in project_list %}
             <div>
-                <a href="{% url 'projectapp:detail' pk=project.pk %}">
+                <a href="{% url 'projectapp:detail' pk=project.pk %}" class="img_a">
                     <img src="{{ project.image.url }}" alt="">
                 </a>
                 <span class="my-2 NNS_B">{{ project.name | truncatechars:10 }}</span>
             </div>
         {% endfor %}
     </div>
+    <script>
+        var img_arr = document.getElementsByClassName('img_a');
+        for(var i=0;i<img_arr.length;i++){
+            img_arr[i].addEventListener('mouseover', function(){
+                console.log(this.nextElementSibling)
+                var next=this.nextElementSibling
+                next.innerHTML="<b>"+next.innerText+"</b>"
+            });
+            img_arr[i].addEventListener('mouseout', function(){
+                var next=this.nextElementSibling
+                next.innerHTML=next.innerText
+            });
+        }
+    </script>
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
     {% include 'snippets/pagination.html' %}

@@ -28,7 +28,7 @@
     <div class="container">
         {% for article in article_list %}
             <div>
-                <a href="{% url 'articleapp:detail' pk=article.pk %}">
+                <a href="{% url 'articleapp:detail' pk=article.pk %}" class="img_a">
                     <img src="{{ article.image.url }}" alt="">
                 </a>
                 <span class="my-2 NNS_B">{{ article.title }}</span>
@@ -36,6 +36,20 @@
 
         {% endfor %}
     </div>
+    <script>
+        var img_arr = document.getElementsByClassName('img_a');
+        for(var i=0;i<img_arr.length;i++){
+            img_arr[i].addEventListener('mouseover', function(){
+                console.log(this.nextElementSibling)
+                var next=this.nextElementSibling
+                next.innerHTML="<b>"+next.innerText+"</b>"
+            });
+            img_arr[i].addEventListener('mouseout', function(){
+                var next=this.nextElementSibling
+                next.innerHTML=next.innerText
+            });
+        }
+    </script>
     <script src="{% static 'js/magicgrid.js' %}"></script>
 
     {% include 'snippets/pagination.html' %}
