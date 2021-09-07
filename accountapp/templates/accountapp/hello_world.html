@@ -13,7 +13,7 @@
             <input type="submit", class="btn btn-outline-primary rounded-pill" value="왼쪽 클릭해">
         </form>
         {%  for data in data_list|slice:":10" %}
-        <h6 style="color: #000000">{{ data.text }}</h6>
+        <h6 style="color: #000000" class="mt-3">{{ data.text }}</h6>
         {% endfor %}
 {#        <h3>new_model.text : {{ new_model.text }}</h3>#}
 {#        <h3>text : {{ text }}</h3>#}
