@@ -9,16 +9,16 @@
     </div>
     <div class="pragmatic_header_button">
         <span>
+            <a href="{% url 'articleapp:list' %}"
+                class="btn btn_header">
+                게시글(article)
+            </a>
+        </span>
+        <span>
             <a href="{% url 'projectapp:list' %}"
                 class="btn btn_header">
 {#                class="btn btn-outline-secondary btn_header">#}
                 게시판(project)
-            </a>
-        </span>
-        <span>
-            <a href="{% url 'articleapp:list' %}"
-                class="btn btn_header">
-                게시글(article)
             </a>
         </span>
         {% if user.is_authenticated %}
