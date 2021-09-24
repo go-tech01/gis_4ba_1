@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+
+  nginx:
+    image: nginx:1.19.5
+    ports:
+      - 80:80
+    networks:
+      - network
+    volumes:
+      - /home/kyh12kr/nginx.conf:/etc/nginx/nginx.conf
+      - static:/data/static/
+      - media:/data/media/
+
+  django:
+    image: gis_4ba_django:3
+    networks:
+      - network
+    volumes:
+      - static:/home/gis_4ba_1/staticfiles/
+      - media:/home/gis_4ba_1/media/
+
+networks:
+  network:
+
+volumes:
+  static:
+  media:
+
