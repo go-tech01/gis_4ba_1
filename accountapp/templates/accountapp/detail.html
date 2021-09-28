@@ -19,12 +19,20 @@
                 </h2>
                 <h5>{{ target_user.profile.message }}</h5>
             {% else %}
-            <h2 style="border: solid; border-color: slategray; border-radius: 2rem; box-shadow: 0 0 1rem darkgray; ">
-                <a href="{% url 'profileapp:create' %}"">
-                <div>프로필 작성</div>
-                <div>(Create Profile)</div>
-                </a>
-            </h2>
+                {% if target_user == user %}
+                <h2 style="border: solid; border-color: slategray; border-radius: 2rem; box-shadow: 0 0 1rem darkgray; ">
+                    <a href="{% url 'profileapp:create' %}">
+                    <div>프로필 작성</div>
+                    <div>(Create Profile)</div>
+                    </a>
+                </h2>
+                {% else %}
+                    <h2>
+                    <img src="{{ target_user.profile.image.url }}"
+                     class = "profile_image m-4"
+                     alt="프로필 미작성">
+                    </h2>
+                {% endif %}
             {% endif %}
         </div>
 

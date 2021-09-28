@@ -1,0 +1,30 @@
+{#<nav aria-label="Page navigation example">#}
+{#    <style>#}
+{#    .btn-outline-info {#}
+{#        color: #040F31FF;#}
+{#        border-color:  #040F31FF;#}
+{#    }#}
+{#    </style>#}
+{#  <ul style="color:black" class="pagination justify-content-center">#}
+    <div class="text-center my-1">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <a class="btn btn-outline-secondary rounded-pill" href="?page=1"><<</a>
+                <a class="btn btn-outline-secondary rounded-pill" href="?page={{ page_obj.previous_page_number }}"><</a>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a class="btn btn-dark rounded-pill" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+{#                {% elif page_obj.number %}#}
+                    <a class="btn btn-secondary rounded-pill" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <a class="btn btn-outline-secondary rounded-pill" href="?page={{ page_obj.next_page_number }}">></a>
+                <a class="btn btn-outline-secondary rounded-pill" href="?page={{ page_obj.paginator.num_pages }}">>></a>
+            {% endif %}
+        {% endif %}
+    </div>
+{#    </ul>#}
+{#</nav>#}
