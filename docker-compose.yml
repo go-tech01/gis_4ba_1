@@ -20,6 +20,11 @@ services:
     volumes:
       - static:/home/gis_4ba_1/staticfiles/
       - media:/home/gis_4ba_1/media/
+    secrets:
+      - DJANGO_SECRET_KEY
+      - MARIADB_USER
+      - MARIADB_PASSWORD
+
 
   mariadb:
     image: mariadb:10.5
@@ -27,6 +32,10 @@ services:
       - network
     volumes:
     - mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
     environment:
       MARIADB_ROOT_PASSWORD: password1234
       MARIADB_DATABASE: django
@@ -42,3 +51,6 @@ volumes:
   media:
   mariadb:
 
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
