@@ -1,9 +1,11 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 from projectapp.models import Project
 
+id = get_user_model()
 
 class Article(models.Model):
     writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='article', null=True)
@@ -14,3 +16,4 @@ class Article(models.Model):
     created_at = models.DateField(auto_now_add=True, null=True)
 
     like = models.IntegerField(default=0)
+
