@@ -17,3 +17,6 @@ class Article(models.Model):
 
     like = models.IntegerField(default=0)
 
+    def __str__(self):
+        return f'{self.title} - {self.writer} --- {self.created_at}'
+

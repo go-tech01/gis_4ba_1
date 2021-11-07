@@ -8,3 +8,5 @@ class Profile(models.Model):
     image = models.ImageField(upload_to='profile/', null=True)
     nickname = models.CharField(max_length=15, unique=True, null=False)
     message = models.CharField(max_length=200, null=True, default='안녕하세요')
+    def __str__(self):
+        return self.user
